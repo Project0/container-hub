@@ -73,7 +73,7 @@ async function run() {
       repo: repoName
     })
 
-    core.debug(lastVersions)
+    core.info(lastVersions)
   }
   catch (error) {
     core.setFailed(error.message);
