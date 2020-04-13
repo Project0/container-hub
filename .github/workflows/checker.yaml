@@ -11,9 +11,11 @@ jobs:
     # This job runs on Linux
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Install dep
         run: |
-          cd ./.github/workflows/actions/checker
+          cd .github/workflows/actions/checker
           npm install
       - name: Test
         uses: ./.github/workflows/actions/checker
