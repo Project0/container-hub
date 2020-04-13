@@ -16,7 +16,7 @@ jobs:
           cd .github/workflows/actions/checker
           npm install
       - name: Test
-        uses: .github/workflows/actions/checker
+        uses: ./.github/workflows/actions/checker
         with:
           name: exim
           owner: exim
