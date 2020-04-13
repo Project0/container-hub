@@ -1,0 +1,24 @@
+name: Check security updates
+on:
+  push:
+    branches:
+      - updater
+
+jobs:
+
+  check:
+    name: Scheduled update check
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dep
+        run: |
+          cd .github/workflows/actions/checker
+          npm install
+      - name: Test
+        uses: .github/workflows/actions/checker
+        with:
+          name: exim
+          owner: exim
+          version: 4.93.0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,32 @@
+name: 'GitHub release checker'
+description: 'Compares the given version against a release/tag in a github repo'
+inputs:
+
+  GITHUB_TOKEN:
+    description: 'Token to query graphql'
+    required: true
+
+  owner:  # id of input
+    description: 'owner of the repo'
+    required: true
+  name:
+    description: 'name of the repo'
+    required: true
+  version:
+    description: 'The version to compare against existing'
+    required: true
+
+  match:
+    description: regex pattern to match version strings
+    required: false
+    default: ''
+
+outputs:
+  version_latest:
+    description: 'Latest available version'
+  version_minor:
+    description: 'Latest available version'
+
+runs:
+  using: 'node12'
+  main: 'index.js'
